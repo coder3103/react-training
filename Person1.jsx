@@ -1,7 +1,6 @@
 import React from 'react'
-import UpdatedComponent from "./HOC"
 
-function Person1({money, handleIncrease}) {
+function Person1() {
   return (
     <div>
     <h2>Jimmy is Offering ${money}</h2>
@@ -10,4 +9,4 @@ function Person1({money, handleIncrease}) {
   )
 }
 
-export default UpdatedComponent(Person1);
+export default Person1;
