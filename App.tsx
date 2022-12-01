@@ -1,11 +1,17 @@
 import * as React from 'react';
-import './style.css';
+import "./App.css";
+import FeedbackForm from "./FeedbackForm";
 
-export default function App() {
+function App() {
+  const handleSubmit = () => {
+    console.log("Form submitted!");
+  };
+
   return (
-    <div>
-      <h1>Hello StackBlitz!</h1>
-      <p>Start editing to see some magic happen :)</p>
+    <div className="App">
+      <FeedbackForm onSubmit={handleSubmit} />
     </div>
   );
 }
+
+export default App;
