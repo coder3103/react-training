@@ -1,11 +1,25 @@
 import * as React from 'react';
-import './style.css';
 
-export default function App() {
+import Navbar from './Navbar'
+
+function App() {
   return (
-    <div>
-      <h1>Hello StackBlitz!</h1>
-      <p>Start editing to see some magic happen :)</p>
+    <div className="App">
+      <Navbar />
     </div>
   );
 }
+
+export default App
+
+/*
+
+- make the inital color of the navigation bar blue
+- if the navigation bar is clicked, make it purple
+
+solution:
+
+https://github.com/iamshaunjp/React-Firebase/tree/lesson-98/cooking-ninja/src
+
+
+*/
