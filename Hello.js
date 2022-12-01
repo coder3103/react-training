@@ -1,13 +1,11 @@
 import React from 'react';
 
-import withNumberGenerator from "./withNumberGenerator"
-
-function Hello({randomNum}) {
+function Hello() {
   return (
     <div>
-      <h1>Hello {randomNum} </h1>
+      <h1>Hello </h1>
     </div>
   );
 }
 
-export default withNumberGenerator(Hello);
+export default Hello;
