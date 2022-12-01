@@ -4,7 +4,7 @@ function withNumberGenerator(WrappedComponent) {
   function NewComponent() {
     const randomNum = Math.floor(Math.random() * 100);
 
-    return <WrappedComponent {...props} randomNum={randomNum} />;
+    return <WrappedComponent randomNum={randomNum} />;
   }
   return NewComponent;
 }

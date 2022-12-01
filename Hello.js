@@ -2,10 +2,10 @@ import React from 'react';
 
 import withNumberGenerator from "./withNumberGenerator"
 
-function Hello() {
+function Hello({randomNum}) {
   return (
     <div>
-      <h1>Hello {randNum} </h1>
+      <h1>Hello {randomNum} </h1>
     </div>
   );
 }
