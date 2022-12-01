@@ -1,10 +1,8 @@
 import * as React from 'react';
 import "./App.css";
-import { ThemeProvider, useTheme } from "./ThemeContext";
 import Switch from "./Switch";
 
 const Title = ({ children }) => {
-  const { theme } = useTheme();
   return (
     <h2
       style={{
@@ -17,7 +15,6 @@ const Title = ({ children }) => {
 };
 
 const Paragraph = ({ children }) => {
-  const { theme } = useTheme();
   return (
     <p
       style={{
@@ -61,7 +58,6 @@ const Page = () => {
 };
 
 function App() {
-  const { theme } = useTheme();
   return (
     <div
       className="App"
@@ -77,9 +73,7 @@ function App() {
 
 function Root() {
   return (
-    <ThemeProvider>
       <App />
-    </ThemeProvider>
   );
 }
 

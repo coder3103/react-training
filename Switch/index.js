@@ -1,9 +1,7 @@
 import "./Styles.css";
 import * as React from 'react';
-import { useTheme } from "../ThemeContext";
 
 const Switch = () => {
-  const { theme, toggleTheme } = useTheme();
   return (
     <label className="switch">
       <input
