@@ -1,3 +1,5 @@
+import * as React from 'react';
+
 function DessertsList(props) {
   // Implement the component here.
 
