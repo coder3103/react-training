@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { useFetch } from "./useFetch";
 import './style.css';
 
@@ -12,8 +12,8 @@ export default function App() {
     if (!data) {
       return [];
     }
-  
-    console.log("computing longest word");
+
+    console.log('longest word')
   
     let longestWord = "";
   
@@ -28,6 +28,8 @@ export default function App() {
     return longestWord;
   }
 
+  // START HERE
+
   return (
     <div>
       <div>count: {count}</div>
@@ -36,3 +38,11 @@ export default function App() {
     </div>
   );
 }
+
+/*
+
+1. create a new const called longestWord and wrap the useMemo over the function computeLongestWord(data) with a dependancy of data and computeLongestWord
+
+2. move the function computeLognestWord outside of the App component OR keep the function in the App component and wrap the useCallback function over the arr => and empty dependancy 
+
+*/
