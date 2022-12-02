@@ -1,7 +1,8 @@
 import * as React from 'react';
-import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { Index } from "./pages/index";
 import { About } from "./pages/about";
+import { UserContext } from "./UserContext";
 
 function App() {
   return (
@@ -17,10 +18,10 @@ function App() {
             </li>
           </ul>
         </nav>
-        <Routes>
+        <UserContext.Provider value={'HELLO'}>
           <Route path="/" exact element={<Index/>} />
           <Route path="/about" exact element={<About/>} />
-        </Routes>
+        </UserContext.Provider>
       </div>
     </Router>
   );

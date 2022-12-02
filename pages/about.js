@@ -1,5 +1,9 @@
 import React from "react"
 
+import React, { useContext } from "react";
+import { UserContext } from "./UserContext";
+
 export function About() {
-    return <h2>About</h2>
+  const { user } = useContext(UserContext);
+    return <h2>About {user} </h2>
 }

@@ -1,5 +1,7 @@
-import React from "react"
+import React, { useContext } from "react";
+import { UserContext } from "./UserContext";
 
 export function Index() {
-    return <h2>Home</h2>
+  const { user } = useContext(UserContext);
+    return <h2>Home {user} </h2>
 }
