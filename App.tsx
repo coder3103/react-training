@@ -22,6 +22,6 @@ export default App4;
 1. notice that when the input changes, it needs to rerender the Expensive component again and
 takes a long time
 
-2. use the useMemo in the Expensive component to prevent multiple rerenders
+2. use the React.memo in the Expensive component to prevent multiple rerenders with no dependancy
 
 */
