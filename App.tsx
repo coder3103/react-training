@@ -1,48 +1,42 @@
 import React, {useState, useEffect} from 'react';
+import React, { useState, useMemo } from "react";
 import { useFetch } from "./useFetch";
-import './style.css';
 
-export default function App() {
+function computeLongestWord(arr) {
+  if (!arr) {
+    return [];
+  }
+
+  console.log("computing longest word");
+
+  let longestWord = "";
+
+  JSON.parse(arr).forEach(sentence =>
+    sentence.split(" ").forEach(word => {
+      if (word.length > longestWord.length) {
+        longestWord = word;
+      }
+    })
+  );
+
+  return longestWord;
+}
+
+const App = () => {
   const [count, setCount] = useState(0);
   const { data } = useFetch(
     "https://raw.githubusercontent.com/ajzbc/kanye.rest/master/quotes.json"
   );
 
-  function computeLongestWord() {
-    if (!data) {
-      return [];
-    }
-
-    console.log('longest word')
-  
-    let longestWord = "";
-  
-    JSON.parse(data).forEach(sentence =>
-      sentence.split(" ").forEach(word => {
-        if (word.length > longestWord.length) {
-          longestWord = word;
-        }
-      })
-    );
-  
-    return longestWord;
-  }
-
-  // START HERE
+  const longestWord = useMemo(() => computeLongestWord(data), [data]);
 
   return (
     <div>
       <div>count: {count}</div>
-      <button onClick={()=> setCount(count + 2)}>Increment</button>
-      <div>{computeLongestWord()}</div>
+      <button onClick={() => setCount(count + 1)}>increment</button>
+      <div>{longestWord}</div>
     </div>
   );
-}
+};
 
-/*
-
-1. create a new const called longestWord and wrap the useMemo over the function computeLongestWord(data) with a dependancy of data and computeLongestWord
-
-2. move the function computeLognestWord outside of the App component OR keep the function in the App component and wrap the useCallback function over the arr => and empty dependancy 
-
-*/
+export default App;
