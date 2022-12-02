@@ -32,7 +32,7 @@ export default function App() {
     <div>
       <div>count: {count}</div>
       <button onClick={()=> setCount(count + 2)}>Increment</button>
-      <div>{computeLongestWord}</div>
+      <div>{computeLongestWord()}</div>
     </div>
   );
 }
