@@ -1,49 +1,43 @@
 import * as React from 'react';
 import './style.css';
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
-function App() {
-  const [text, setText] = useState("");
-  const [number, setNumber] = useState(0);
+function App3() {
+  const [name, setName] = useState("");
+  const [age, setAge] = useState(null);
+  const [country, setCountry] = useState("");
 
-  const expensiveFunction = (n) => {
-    console.log("function running!");
-    let total = 0;
-    for (let i = 1; i <= n; i++) {
-      total += i;
-    }
-    return total;
-  };
+  const userType = useMemo(
+    () => ({
+      underAge: age < 18 ? true : false,
+      citizen: country === "USA" ? true : false,
+    }),
+    [age, country]
+  );
 
-  const sum = expensiveFunction(number);
+  useEffect(() => {
+    console.log("user type has changed!");
+  }, [userType]);
 
   console.log("component rendered!");
 
   return (
     <div>
+      <input onChange={(e) => setName(e.target.value)} placeholder="name" />
       <input
-        onChange={(e) => setText(e.target.value)}
-        placeholder="enter a text"
-      />
-      <input
+        onChange={(e) => setAge(e.target.value)}
+        placeholder="age"
         type="number"
-        value={number}
-        onChange={(e) => setNumber(e.target.value)}
       />
-      <span>Total: {sum}</span>
+      <select onChange={(e) => setCountry(e.target.value)}>
+        <option value="USA">USA</option>
+        <option value="UK">UK</option>
+        <option value="PL">PL</option>
+        <option value="JP">JP</option>
+      </select>
     </div>
   );
 }
 
-export default App;
-
-/*
-
-1. notice that when the text input changes, the app rerenders and also causes the expensiveFunction to be triggered even though the value is still the same
-
-2. what you need to do is to prevent the function from rerendering and only rerender it if the number actually changes from the input 
-
-3. therefore the console log should say function running! and component rendered when the number changes and component rendered! when the text changes.
-
-*/
+export default App3;
