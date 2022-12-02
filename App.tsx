@@ -17,9 +17,9 @@ function App() {
     return (n <= 1) ? n : fib(n - 1) + fib(n - 2);
   }, [])
 
-  const fibNumber = useMemo(() => fib(userNumber), [userNumber, fib]);
+  const fibNumber = fib(userNumber);
 
-  const myArray = useMemo(() => getArray(), []);
+  const myArray = getArray();
 
   useEffect(() => {
     console.log('New array')
