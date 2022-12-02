@@ -1,9 +1,14 @@
 import React from "react"
-
 import React, { useContext } from "react";
-import { UserContext } from "./UserContext";
+import { UserContext } from "../UserContext";
 
 export function About() {
-  const { user } = useContext(UserContext);
-    return <h2>About {user} </h2>
+  const {value, setValue} = useContext(UserContext);
+    return 
+    ( 
+    <div>
+    <h2>About {value} </h2>
+    <button onClick={()=> setValue('BYE')}>Change</button>
+    </div>
+    );
 }
