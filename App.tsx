@@ -13,16 +13,18 @@ export default App
 
 /*
 
-1. create a context that will wrap around the entire App component and pass a value that is an object with key color and value blue
+1. in the ThemeContext file, create an export const called ThemeContext and is assigned the createContext() 
 
-2. now that each component has access to the context, use the context and extract the color  to change the navbar background to blue (import useContext)
+2. below, create and export a function called ThemeProvider that receives a children prop and inside the function, return the ThemeContext.Provider with a value object of color blue and between the provider tags, add the children prop
 
-3. instead of the ThemeContext.Provider wrapping the App, in your ThemeContext component,  create a function called ThemeProvider and will receive children prop and in its return, it will use the ThemeContext.Provider with the value object key color and vlaue blue and between it is the children and wrap the App with the ThemeProvider instead
+3. in the useTheme file, import the useContext and ThemeContext and create an export const called useTheme that is an arrow function
 
-4. now try to create a hook called useTheme that will utilize the useContext hook with the ThemeContext
-and it will return the new variable that is assigned from useContext and make sure to check
-that if the new variable is undefined, then throw a message
+4. inside the function, extract the value from ThemeContext using the useContext and call it const context
 
-5. now import the useTheme hook into the navbar and deconstruct to get the color 
+5. if the context is undefined, then throw new Error('message') and then return the context
+
+6. in the navbar file, import the useTheme hook and extract the color from the hook and use the color as the background color for the div with navbar class
+
+7. don't forget to wrap the ThemeProvider over the App component in index.js
 
 */
