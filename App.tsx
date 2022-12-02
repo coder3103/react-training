@@ -9,21 +9,28 @@ const App = () => {
     const [num1] = useState(4);
     const [num2] = useState(5);
 
-    //const sum = useCallback(() => num1 + num2, [num1, num2]);
-    const buildArray = useCallback(() => [num1, num2], [num1, num2]);
+    const sum = () => num1 + num2;
 
     useEffect(() => {
-        console.log(`New array: ${buildArray()}`);
-        setResult(buildArray());
-    }, [buildArray]);
+        console.log(`New sum: ${sum()}`);
+        setResult(sum())
+    }, [sum]);
 
     return (
         <main className="App">
             <input type="text" placeholder="input" value={userInput} onChange={(e) => setUserInput(e.target.value)} />
             <h1>Output: {userInput || "--"}</h1>
-            <p>Result: {JSON.stringify(result)}</p>
+            <h2>{result}</h2>
         </main>
     )
 }
 
 export default App
+
+/*
+
+1. notice that when the input changes, the sum is printed even though the value is still the same
+
+2. useCallback with the sum function with a dependancy array of num1 and num2 
+
+*/
