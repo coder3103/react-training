@@ -10,11 +10,11 @@ const App = () => {
     const [num2] = useState(5);
 
     //const sum = useCallback(() => num1 + num2, [num1, num2]);
-    const buildArray = useCallback(() => [num1, num2], [num1, num2]);
+    const buildArray = () => [num1, num2];
 
     useEffect(() => {
         console.log(`New array: ${buildArray()}`);
-        setResult(buildArray());
+        // setResult(buildArray());
     }, [buildArray]);
 
     return (
@@ -27,3 +27,9 @@ const App = () => {
 }
 
 export default App
+
+/*
+
+1. if you were to uncomment line 17, it would run an infinite loop and crash, use the useCallback hook to prevent the crash and show the result [4,5]
+
+*/
