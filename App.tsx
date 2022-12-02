@@ -37,4 +37,12 @@ and are able to change the state using a button and it will affect it globally (
 video: https://www.youtube.com/watch?v=lhMKvyLRWo0
 github: https://github.com/benawad/react-hooks-tutorial/blob/7_useContext/src/pages/about.js
 
+1. in the UserContext, create and export a context called UserContext and created by using the createContext(null)
+
+2. in the App.tsx, make sure to import the new context and use its provider around the routes-> route
+
+3. in App.tsx, create a useState and pass its value and function in the provider 
+
+4. in eachc page, deconstruct the value and function from the context using useContext and show the value on the page and create a button that will change the value of the state when clicked and do the same for both pages
+
 */
