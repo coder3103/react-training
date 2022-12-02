@@ -8,13 +8,11 @@ function App3() {
   const [age, setAge] = useState(null);
   const [country, setCountry] = useState("");
 
-  const userType = useMemo(
-    () => ({
-      underAge: age < 18 ? true : false,
-      citizen: country === "USA" ? true : false,
-    }),
-    [age, country]
-  );
+  const userType = {
+    underAge: age < 18 ? true : false,
+    citizen: country === "USA" ? true : false,
+  };
+
 
   useEffect(() => {
     console.log("user type has changed!");
@@ -41,3 +39,11 @@ function App3() {
 }
 
 export default App3;
+
+/*
+
+1. notice that the user type message shows when the name changes and the component is rendered everytime a change is made
+
+2. use the useMemo hook to prevent the function from running again if the text input changes and only triggers again if the age or country inputs change
+
+*/
