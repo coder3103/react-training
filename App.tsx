@@ -1,49 +1,27 @@
 import * as React from 'react';
 import './style.css';
 
-import { useEffect, useMemo, useState } from "react";
+import { useState } from "react";
+import Expensive from "./Expensive";
 
-function App3() {
-  const [name, setName] = useState("");
-  const [age, setAge] = useState(null);
-  const [country, setCountry] = useState("");
+function App4() {
+    const [name, setName] = useState("");
 
-  const userType = {
-    underAge: age < 18 ? true : false,
-    citizen: country === "USA" ? true : false,
-  };
+    return (
+      <div>
+        <input onChange={(e) => setName(e.target.value)} placeholder="name" />
+        <Expensive />
+      </div>
+    );
+  }
 
+export default App4;
 
-  useEffect(() => {
-    console.log("user type has changed!");
-  }, [userType]);
+/* 
 
-  console.log("component rendered!");
+1. notice that when the input changes, it needs to rerender the Expensive component again and
+takes a long time
 
-  return (
-    <div>
-      <input onChange={(e) => setName(e.target.value)} placeholder="name" />
-      <input
-        onChange={(e) => setAge(e.target.value)}
-        placeholder="age"
-        type="number"
-      />
-      <select onChange={(e) => setCountry(e.target.value)}>
-        <option value="USA">USA</option>
-        <option value="UK">UK</option>
-        <option value="PL">PL</option>
-        <option value="JP">JP</option>
-      </select>
-    </div>
-  );
-}
-
-export default App3;
-
-/*
-
-1. notice that the user type message shows when the name changes and the component is rendered everytime a change is made
-
-2. use the useMemo hook to prevent the function from running again if the text input changes and only triggers again if the age or country inputs change
+2. use the useMemo in the Expensive component to prevent multiple rerenders
 
 */
