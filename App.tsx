@@ -16,7 +16,7 @@ function App() {
     return total;
   };
 
-  const sum = useMemo(() => expensiveFunction(number), [number]);
+  const sum = expensiveFunction(number);
 
   console.log("component rendered!");
 
@@ -37,3 +37,13 @@ function App() {
 }
 
 export default App;
+
+/*
+
+1. notice that when the text input changes, the app rerenders and also causes the expensiveFunction to be triggered even though the value is still the same
+
+2. what you need to do is to prevent the function from rerendering and only rerender it if the number actually changes from the input 
+
+3. therefore the console log should say function running! and component rendered when the number changes and component rendered! when the text changes.
+
+*/
