@@ -20,7 +20,7 @@ const App = () => {
         <main className="App">
             <input type="text" placeholder="input" value={userInput} onChange={(e) => setUserInput(e.target.value)} />
             <h1>Output: {userInput || "--"}</h1>
-            <h2>{sum}</h2>
+            <h2>{result}</h2>
         </main>
     )
 }
